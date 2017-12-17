@@ -1,57 +1,144 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- * @flow
- */
+import React from 'react';
+import { View, Text, Platform, Image } from 'react-native';
+import { StackNavigator, TabNavigator, DrawerNavigator } from 'react-navigation';
+import { Button, Icon, Avatar } from 'react-native-elements';
+import TantanScreen from './src/drawer/tantan.js';
+import AnlianScreen from './src/drawer/anlian.js';
+import SettingScreen from './src/drawer/setting.js';
+import GuidanceScreen from './src/drawer/guidance.js';
+import ShareScreen from './src/drawer/share.js';
+import ProfileScreen from './src/views/profile.js';
 
-import React, { Component } from 'react';
-import {
-  Platform,
-  StyleSheet,
-  Text,
-  View
-} from 'react-native';
-
-const instructions = Platform.select({
-  ios: 'Press Cmd+R to reload,\n' +
-    'Cmd+D or shake for dev menu',
-  android: 'Double tap R on your keyboard to reload,\n' +
-    'Shake or press menu button for dev menu',
-});
-
-export default class App extends Component<{}> {
-  render() {
-    return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
-        <Text style={styles.instructions}>
-          To get started, edit App.js
-        </Text>
-        <Text style={styles.instructions}>
-          {instructions}
-        </Text>
-      </View>
-    );
-  }
-}
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
+const MainNavigator = DrawerNavigator({
+  头像: {
+    screen: ProfileScreen,
+    navigationOptions: {
+      drawerLabel: '好啊那你抱紧啊',
+      drawerIcon:
+      <Avatar
+        medium
+        rounded
+        source={require('./src/images/timg.jpg')}
+      
+      />
+    }
   },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
+  探探: {
+    screen: TantanScreen,
+    navigationOptions: {
+      drawerLabel: '探探',
+      drawerIcon:
+      <Icon
+        name="users"
+        color='white'
+        size={20}
+        type='feather'
+        style={{
+          width: 45,
+          height: 50,
+          alignItems: 'center',
+          justifyContent: 'center',
+        }}
+      />
+    }
   },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
+  匿名暗恋表白: {
+    screen: AnlianScreen,
+    navigationOptions: {
+      drawerLabel: '匿名暗恋表白',
+      drawerIcon: ({ tintColor }) => (
+        <Icon
+          name="email-open"
+          color='white'
+          size={20}
+          style={{
+            width: 50,
+            height: 50,
+            alignItems: 'center',
+            justifyContent: 'center',
+          }}
+          type="material-community"
+
+        />
+      ),
+    }
   },
-});
+  设置: {
+    screen: SettingScreen,
+    navigationOptions: {
+      drawerLabel: '设置',
+      drawerIcon: ({ tintColor }) => (
+        <Icon
+          name="settings"
+          color='white'
+          size={20}
+          style={{
+            width: 50,
+            height: 50,
+            alignItems: 'center',
+            justifyContent: 'center',
+          }}
+          type="feather"
+
+        />
+      ),
+    }
+  },
+  新手引导: {
+    screen: GuidanceScreen,
+    navigationOptions: {
+      drawerLabel: '新手引导',
+      drawerIcon:
+      <Icon
+        name="question-circle"
+        color='white'
+        size={20}
+        style={{
+          width: 50,
+          height: 50,
+          alignItems: 'center',
+          justifyContent: 'center',
+        }}
+        type="font-awesome"
+
+      />
+    }
+  },
+  推荐给好友: {
+    screen: ShareScreen,
+    navigationOptions: {
+      drawerLabel: '推荐给好友',
+      drawerIcon:
+      <Icon
+        name="share-alternative"
+        color='white'
+        size={20}
+        style={{
+          width: 50,
+          height: 50,
+          alignItems: 'center',
+          justifyContent: 'center',
+        }}
+        type="entypo"
+      />
+    }
+  },
+
+},
+  {
+    drawerBackgroundColor: 'black',
+    contentOptions: {
+      activeTintColor: 'white',
+      inactiveTintColor: '#ffffff',
+      labelStyle: {
+        fontSize: 15,
+        marginLeft: 5,
+      },
+
+    }
+  },
+);
+
+
+
+export default MainNavigator;
