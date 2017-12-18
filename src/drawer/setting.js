@@ -14,6 +14,13 @@ const SettingScreen = StackNavigator({
         path: '/',
         navigationOptions: ({ navigation }) => ({
             title: '设置',
+            headerStyle:{
+                backgroundColor:'#BB3D00'
+            },
+            headerTitleStyle:{
+                color:'white',
+                paddingLeft: 91
+            },
             headerLeft: (
                 <Icon
                     name="menu"
@@ -21,6 +28,7 @@ const SettingScreen = StackNavigator({
                     type="entypo"
                     style={{ paddingLeft: 10 }}
                     onPress={() => navigation.navigate('DrawerOpen')}
+                    color="white"
                 />
             ),
         }),

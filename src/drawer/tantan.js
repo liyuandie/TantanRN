@@ -16,6 +16,13 @@ const Tantan = StackNavigator({
         path: '/',
         navigationOptions: ({ navigation }) => ({
             title: '探探',
+            headerStyle:{
+                backgroundColor:'#BB3D00'
+            },
+            headerTitleStyle:{
+                color:'white',
+                paddingLeft: 91
+            },
             headerLeft: (
                 <Icon
                     name="menu"
@@ -23,6 +30,7 @@ const Tantan = StackNavigator({
                     type="entypo"
                     style={{ paddingLeft: 10 }}
                     onPress={() => navigation.navigate('DrawerOpen')}
+                    color="white"
                 />
             ),
         }),

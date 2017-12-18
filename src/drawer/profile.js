@@ -4,22 +4,21 @@ import { StackNavigator } from 'react-navigation';
 import { Icon } from 'react-native-elements';
 
 
-const Anlian = () => (
-    <Text>匿名暗恋表白aaaa</Text>
-);
-
-const AnlianScreen = StackNavigator({
+const Profile = () => (
+    <Text>your profiles</Text>
+)
+const ProfileScreen = StackNavigator({
     Buttons: {
-        screen: Anlian,
+        screen: Profile,
         path: '/',
         navigationOptions: ({ navigation }) => ({
-            title: '匿名暗恋表白',
+            title: '个人资料',
             headerStyle:{
                 backgroundColor:'#BB3D00'
             },
             headerTitleStyle:{
                 color:'white',
-                paddingLeft: 50
+                paddingLeft: 75
             },
             headerLeft: (
                 <Icon
@@ -35,5 +34,4 @@ const AnlianScreen = StackNavigator({
     },
 
 });
-
-export default AnlianScreen;
+export default ProfileScreen;

@@ -1,26 +1,41 @@
 import React from 'react';
 import { View, Text, Platform, Image } from 'react-native';
-import { StackNavigator, TabNavigator, DrawerNavigator } from 'react-navigation';
+import { DrawerNavigator, DrawerItems, StackNavigator } from 'react-navigation';
 import { Button, Icon, Avatar } from 'react-native-elements';
 import TantanScreen from './src/drawer/tantan.js';
 import AnlianScreen from './src/drawer/anlian.js';
 import SettingScreen from './src/drawer/setting.js';
 import GuidanceScreen from './src/drawer/guidance.js';
 import ShareScreen from './src/drawer/share.js';
-import ProfileScreen from './src/views/profile.js';
+import ProfileScreen from './src/drawer/profile.js';
+
+const ProfileDrawerItem = props => (
+  <View style={{ flex: 1, }}>
+    <View
+      style={{
+        marginTop: 50,
+        marginBottom: 50,
+        justifyContent: 'center',
+        alignItems: 'center'
+      }}
+    >
+      <Avatar
+        large
+        rounded
+        source={require('./src/images/eason.png')}
+      />
+      <Text style={{ color: 'white', lineHeight: 40, fontSize: 20, }}>好啊那你抱紧啊</Text>
+      <Text style={{ color: 'white', lineHeight: 20, fontSize: 15, }}>点击查看/编辑</Text>
+    </View>
+  </View>
+);
+
 
 const MainNavigator = DrawerNavigator({
   头像: {
     screen: ProfileScreen,
     navigationOptions: {
-      drawerLabel: '好啊那你抱紧啊',
-      drawerIcon:
-      <Avatar
-        medium
-        rounded
-        source={require('./src/images/timg.jpg')}
-      
-      />
+      drawerLabel: ProfileDrawerItem,
     }
   },
   探探: {
@@ -123,21 +138,27 @@ const MainNavigator = DrawerNavigator({
       />
     }
   },
-
 },
   {
     drawerBackgroundColor: 'black',
+    initialRouteName: '探探',
     contentOptions: {
       activeTintColor: 'white',
       inactiveTintColor: '#ffffff',
-      labelStyle: {
-        fontSize: 15,
-        marginLeft: 5,
+      itemStyle: {
+        marginTop: 15,
       },
-
-    }
+      labelStyle: {
+        fontSize: 18,
+        marginLeft: 5,
+        fontWeight: 'normal',
+      },
+    },
   },
 );
+
+
+
 
 
 

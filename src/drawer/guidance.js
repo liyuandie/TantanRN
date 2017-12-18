@@ -14,6 +14,13 @@ const GuidanceScreen = StackNavigator({
         path: '/',
         navigationOptions: ({ navigation }) => ({
             title: '新手引导',
+            headerStyle:{
+                backgroundColor:'#BB3D00'
+            },
+            headerTitleStyle:{
+                color:'white',
+                paddingLeft: 75
+            },
             headerLeft: (
                 <Icon
                     name="menu"
@@ -21,6 +28,7 @@ const GuidanceScreen = StackNavigator({
                     type="entypo"
                     style={{ paddingLeft: 10 }}
                     onPress={() => navigation.navigate('DrawerOpen')}
+                    color="white"
                 />
             ),
         }),
