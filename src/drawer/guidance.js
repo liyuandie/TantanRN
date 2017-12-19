@@ -19,7 +19,9 @@ const GuidanceScreen = StackNavigator({
             },
             headerTitleStyle:{
                 color:'white',
-                paddingLeft: 75
+                paddingLeft: 70,
+                fontWeight:'normal',
+                fontSize:23
             },
             headerLeft: (
                 <Icon

@@ -19,7 +19,9 @@ const SettingScreen = StackNavigator({
             },
             headerTitleStyle:{
                 color:'white',
-                paddingLeft: 91
+                paddingLeft: 85,
+                fontWeight:'normal',
+                fontSize:23
             },
             headerLeft: (
                 <Icon

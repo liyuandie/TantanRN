@@ -2,11 +2,11 @@ import React, { Component } from 'react';
 import { Text } from 'react-native';
 import { StackNavigator } from 'react-navigation';
 import { Icon } from 'react-native-elements';
+import AnlianView from '../views/anlian';
 
-
-const Anlian = () => (
-    <Text>匿名暗恋表白aaaa</Text>
-);
+const Anlian = ({ navigation }) => (
+    <AnlianView navigation={navigation} />
+  );
 
 const AnlianScreen = StackNavigator({
     Buttons: {
@@ -19,7 +19,9 @@ const AnlianScreen = StackNavigator({
             },
             headerTitleStyle:{
                 color:'white',
-                paddingLeft: 50
+                paddingLeft: 45,
+                fontWeight:'normal',
+                fontSize:23
             },
             headerLeft: (
                 <Icon
