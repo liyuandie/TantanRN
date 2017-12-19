@@ -21,9 +21,9 @@ const Tantan = StackNavigator({
             },
             headerTitleStyle:{
                 color:'white',
-                paddingLeft: 85,
+                paddingLeft: 90,
                 fontWeight:'normal',
-                fontSize:23
+                fontSize:20
             },
             headerLeft: (
                 <Icon

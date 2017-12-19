@@ -19,9 +19,9 @@ const AnlianScreen = StackNavigator({
             },
             headerTitleStyle:{
                 color:'white',
-                paddingLeft: 45,
+                paddingLeft: 50,
                 fontWeight:'normal',
-                fontSize:23
+                fontSize:20
             },
             headerLeft: (
                 <Icon

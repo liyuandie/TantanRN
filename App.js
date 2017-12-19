@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, Platform, Image } from 'react-native';
+import { View, Text, Platform, Dimensions, Image } from 'react-native';
 import { DrawerNavigator, DrawerItems, StackNavigator } from 'react-navigation';
 import { Button, Icon, Avatar } from 'react-native-elements';
 import TantanScreen from './src/drawer/tantan.js';
@@ -9,12 +9,15 @@ import GuidanceScreen from './src/drawer/guidance.js';
 import ShareScreen from './src/drawer/share.js';
 import ProfileScreen from './src/drawer/profile.js';
 
+
+const SCREEN_WIDTH = Dimensions.get('window').width;
+
 const ProfileDrawerItem = props => (
   <View style={{ flex: 1, }}>
     <View
       style={{
-        marginTop: 50,
-        marginBottom: 50,
+        marginTop: 20,
+        marginBottom: 40,
         justifyContent: 'center',
         alignItems: 'center'
       }}
@@ -142,11 +145,13 @@ const MainNavigator = DrawerNavigator({
   {
     drawerBackgroundColor: 'black',
     initialRouteName: '探探',
+    drawerWidth: SCREEN_WIDTH * 0.83,
     contentOptions: {
       activeTintColor: 'white',
       inactiveTintColor: '#ffffff',
       itemStyle: {
         marginTop: 15,
+        paddingLeft:15,
       },
       labelStyle: {
         fontSize: 18,
