@@ -11,26 +11,26 @@ const HomeScreen = () => (
 );
 
 const Tantan = StackNavigator({
-    Buttons: {
+    tantan: {
         screen: HomeScreen,
         path: '/',
         navigationOptions: ({ navigation }) => ({
             title: '探探',
-            headerStyle:{
-                backgroundColor:'#BB3D00'
+            headerStyle: {
+                backgroundColor: '#BB3D00'
             },
-            headerTitleStyle:{
-                color:'white',
+            headerTitleStyle: {
+                color: 'white',
                 paddingLeft: 90,
-                fontWeight:'normal',
-                fontSize:20
+                fontWeight: 'normal',
+                fontSize: 20
             },
             headerLeft: (
                 <Icon
                     name="menu"
                     size={30}
                     type="entypo"
-                    style={{ paddingLeft: 10 }}
+                    iconStyle={{ paddingLeft: 10 }}
                     onPress={() => navigation.navigate('DrawerOpen')}
                     color="white"
                 />

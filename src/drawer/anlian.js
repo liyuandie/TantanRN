@@ -9,7 +9,7 @@ const Anlian = ({ navigation }) => (
   );
 
 const AnlianScreen = StackNavigator({
-    Buttons: {
+    Anlian: {
         screen: Anlian,
         path: '/',
         navigationOptions: ({ navigation }) => ({
@@ -28,7 +28,7 @@ const AnlianScreen = StackNavigator({
                     name="menu"
                     size={30}
                     type="entypo"
-                    style={{ paddingLeft: 10 }}
+                    iconStyle={{ paddingLeft: 10 }}
                     onPress={() => navigation.navigate('DrawerOpen')}
                     color="white"
                 />
