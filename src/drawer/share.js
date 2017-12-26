@@ -1,11 +1,35 @@
 import React, { Component } from 'react';
-import { Text } from 'react-native';
-import { Icon, Button } from 'react-native-elements';
+import { Icon } from 'react-native-elements';
+import { StackNavigator } from 'react-navigation';
+import shareView from '../views/share.js'
 
-
-const ShareScreen = () => (
-    <Text>推荐给好友页面呀</Text>
-);
-
+const ShareScreen = StackNavigator({
+    share: {
+        screen: shareView,
+        path: '/',
+        navigationOptions: ({ navigation }) => ({
+            title: '推荐给好友',
+            headerStyle: {
+                backgroundColor: '#BB3D00'
+            },
+            headerTitleStyle: {
+                color: 'white',
+                paddingLeft: 67,
+                fontWeight: 'normal',
+                fontSize: 20
+            },
+            headerLeft: (
+                <Icon
+                    name="menu"
+                    size={30}
+                    type="entypo"
+                    iconStyle={{ paddingLeft: 10 }}
+                    onPress={() => navigation.navigate('DrawerOpen')}
+                    color="white"
+                />
+            ),
+        }),
+    },
+})
 
 export default ShareScreen;

@@ -144,7 +144,7 @@ const MainNavigator = DrawerNavigator({
 },
   {
     drawerBackgroundColor: 'black',
-    initialRouteName: '设置',
+    initialRouteName: '头像',
     drawerWidth: SCREEN_WIDTH * 0.83,
     contentOptions: {
       activeTintColor: 'white',

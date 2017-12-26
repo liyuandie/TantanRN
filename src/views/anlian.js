@@ -113,7 +113,7 @@ class AnlianView extends Component {
                                         leftIcon={{ name: "heart", type: "entypo", color: 'red' }}
                                         key={i}
                                         title={l.name}
-                                        hideChevron='true'
+                                        hideChevron={true}
                                         containerStyle={{
                                             borderTopWidth: 0,
                                             borderBottomWidth: 0,
@@ -148,7 +148,7 @@ class AnlianView extends Component {
                                         leftIcon={{ name: "heart", type: "entypo" }}
                                         key={i}
                                         title={l.name}
-                                        hideChevron='true'
+                                        hideChevron={true}
                                         containerStyle={{
                                             borderTopWidth: 0,
                                             borderBottomWidth: 0,

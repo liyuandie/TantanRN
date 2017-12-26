@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { View, ScrollView, Image, } from 'react-native';
-import { Text, Button, Icon, List, ListItem, Slider } from 'react-native-elements';
+import { View, ScrollView, Image, Modal, TouchableOpacity } from 'react-native';
+import { Text, Button, Icon, List, ListItem, Slider, CheckBox } from 'react-native-elements';
 
 const list = [
     {
@@ -64,6 +64,18 @@ const list = [
     },
 ]
 
+const list2 = [
+    {
+        title: '男生'
+    },
+    {
+        title: '女生'
+    },
+    {
+        title: '不限'
+    },
+]
+
 class Setting_home extends Component {
     constructor(props) {
         super(props);
@@ -71,7 +83,8 @@ class Setting_home extends Component {
             range: 45,
             minAge: 16,
             maxAge: 18,
-            sexuality: '女生'
+            sexuality: '女生',
+            visible: false,
         };
     }
     render() {
@@ -113,7 +126,8 @@ class Setting_home extends Component {
                             containerStyle={{ borderBottomWidth: 0, paddingBottom: 30 }}
                             hideChevron={true}
                             rightTitle={`${sexuality}`}
-                            rightTitleStyle={{ color: '#BB3D00' }} />
+                            rightTitleStyle={{ color: '#BB3D00' }}
+                            onPress={() => this.setState({ visible: true })} />
                         <ListItem
                             title='年龄'
                             titleStyle={{ fontSize: 15, }}
@@ -201,6 +215,43 @@ class Setting_home extends Component {
                             <Text style={{ color: 'grey', fontSize: 12, textDecorationLine: 'underline', textDecorationColor: 'grey', }}>探探2.8.9</Text>
                         </View>
                     </List>
+                </View>
+                <View>
+                    <Modal
+                        animationType={"fade"}
+                        transparent={true}
+                        visible={this.state.visible}
+                        onRequestClose={() => this.setState({ visible: false })}
+                    >
+                        <TouchableOpacity style={{ flex: 1 }} onPress={() => this.setState({ visible: false })}>
+                            <View style={{ flex: 1,justifyContent: 'center', alignItems: 'center', backgroundColor: 'rgba(0,0,0,0.5)' }}>
+                                <View style={{ height: 200, width: 300, backgroundColor: 'white' }}>
+                                    <View style={{ paddingLeft: 15, paddingTop: 15, paddingBottom: 20 }}>
+                                        <Text style={{ fontSize: 18, color: "black" }}>显示性别</Text>
+                                    </View>
+                                    <List containerStyle={{ marginTop: 0, borderTopWidth: 0, borderBottomWidth: 0, }}>
+                                        {list2.map((l, i) => (
+                                            <ListItem
+                                                title={l.title}
+                                                key={i}
+                                                containerStyle={{ borderBottomWidth: 0, height: 40 }}
+                                                titleStyle={{ fontSize: 16 }}
+                                                rightIcon={<CheckBox
+                                                    iconRight
+                                                    size={18}
+                                                    checkedIcon="dot-circle-o"
+                                                    uncheckedIcon="circle-o"
+                                                    checked={this.state.sexuality === l.title}
+                                                    checkedColor="#BB3D00"
+                                                    containerStyle={{ backgroundColor: 'white', borderColor: 'white' }}
+                                                    onPress={() => this.setState({ visible: false, sexuality: l.title })} />}
+                                            />
+                                        ))}
+                                    </List>
+                                </View>
+                            </View>
+                        </TouchableOpacity>
+                    </Modal>
                 </View>
             </ScrollView>
         )

@@ -6,7 +6,7 @@ import { Icon, Button } from 'react-native-elements';
 
 const HomeScreen = () => (
     <Button
-        title="Go to 设置"
+        title="Go to 设置aaaa"
     />
 );
 
