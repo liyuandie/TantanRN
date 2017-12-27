@@ -169,12 +169,8 @@ class Setting_home extends Component {
                                     marginLeft: 10,
                                     height: 65
                                 }}
-                                titleStyle={{
-                                    fontSize: 15,
-                                }}
-                                subtitleStyle={{
-                                    fontWeight: 'normal'
-                                }}
+                                titleStyle={{ fontSize: 15, }}
+                                subtitleStyle={{ fontWeight: 'normal' }}
                                 onPress={() => navigation.navigate(l.detail)}
                             />
                         ))}
@@ -224,7 +220,7 @@ class Setting_home extends Component {
                         onRequestClose={() => this.setState({ visible: false })}
                     >
                         <TouchableOpacity style={{ flex: 1 }} onPress={() => this.setState({ visible: false })}>
-                            <View style={{ flex: 1,justifyContent: 'center', alignItems: 'center', backgroundColor: 'rgba(0,0,0,0.5)' }}>
+                            <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: 'rgba(0,0,0,0.5)' }}>
                                 <View style={{ height: 200, width: 300, backgroundColor: 'white' }}>
                                     <View style={{ paddingLeft: 15, paddingTop: 15, paddingBottom: 20 }}>
                                         <Text style={{ fontSize: 18, color: "black" }}>显示性别</Text>

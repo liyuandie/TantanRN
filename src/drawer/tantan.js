@@ -2,17 +2,13 @@ import React, { Component } from 'react';
 import { Text } from 'react-native';
 import { StackNavigator } from 'react-navigation';
 import { Icon, Button } from 'react-native-elements';
+import Tantan_view from '../views/tantan.js'
 
 
-const HomeScreen = () => (
-    <Button
-        title="Go to 设置aaaa"
-    />
-);
 
 const Tantan = StackNavigator({
     tantan: {
-        screen: HomeScreen,
+        screen: Tantan_view,
         path: '/',
         navigationOptions: ({ navigation }) => ({
             title: '探探',
