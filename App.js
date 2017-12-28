@@ -144,7 +144,7 @@ const MainNavigator = DrawerNavigator({
 },
   {
     drawerBackgroundColor: 'black',
-    initialRouteName: 'Setting',
+    initialRouteName: 'Tantan',
     drawerWidth: SCREEN_WIDTH * 0.83,
     contentOptions: {
       activeTintColor: 'white',
