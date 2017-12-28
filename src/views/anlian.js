@@ -4,7 +4,7 @@ import { Text, Button, Icon, SearchBar, List, ListItem } from 'react-native-elem
 
 const SCREEN_WIDTH = Dimensions.get('window').width;
 
-const Contacts = [
+const contacts = [
     {
         name: '刘诗睿',
         id: 1,
@@ -51,20 +51,19 @@ const Contacts = [
 class AnlianView extends Component {
     constructor(props) {
         super(props);
-        const contacts = Contacts;
         this.state = {
-            friends: Contacts,
+            friends: contacts,
         };
     }
 
-    LikeSomeone = (id) => {
-        for (let person of Contacts) {
+    likeSomeone = (id) => {
+        for (let person of contacts) {
             if (person.id === id) {
                 person.isLike = true;
             }
         }
         this.setState({
-            friends: Contacts
+            friends: contacts
         });
     }
 
@@ -74,74 +73,33 @@ class AnlianView extends Component {
         const likeCount = like.length;
         return (
             <ScrollView>
-                <View>
-                    <View style={{ flex: 1, }}>
-                        <SearchBar
-                            round
-                            placeholder='搜索'
-                            lightTheme
-                        />
-                        <Image
-                            source={require('../images/heart.jpg')}
-                            style={{
-                                resizeMode: 'contain',
-                                width: SCREEN_WIDTH,
-                                height: 300,
-                                borderWidth: 1
-                            }}
-                        />
-                    </View>
-                    <View style={{
-                        flex: 1,
-                        paddingTop: 20,
-                        backgroundColor: 'white',
-                        borderTopWidth: 1,
-                        borderTopColor: '#cbd2d9'
-                    }}>
-                        <Text style={{ color: '#BB3D00', paddingLeft: 10 }}>已选择的暗恋 ({likeCount})</Text>
-                        <List
-                            containerStyle={{
-                                marginTop: 30,
-                                borderTopWidth: 0,
-                                borderBottomWidth: 1,
-                                borderBottomColor: '#cbd2d9'
-                            }}
-                        >
-                            {
-                                like.map((l, i) => (
-                                    <ListItem
-                                        leftIcon={{ name: "heart", type: "entypo", color: 'red' }}
-                                        key={i}
-                                        title={l.name}
-                                        hideChevron={true}
-                                        containerStyle={{
-                                            borderTopWidth: 0,
-                                            borderBottomWidth: 0,
-                                            marginBottom: 20,
-                                            marginTop:0,
-                                            marginLeft:10
-                                        }}
-                                        titleStyle={{
-                                            fontSize:15,
-                                        }}
-                                        titleContainerStyle={{
-                                            paddingLeft:10
-                                        }}
-                                    />
-                                ))
-                            }
-                        </List>
-                    </View>
-                    <View style={{ flex: 1, paddingTop: 20, backgroundColor: 'white' }}>
+                <View style={{ flex: 1, }}>
+                    <SearchBar round placeholder='搜索' lightTheme />
+                    <Image
+                        source={require('../images/heart.jpg')}
+                        style={styles.image}
+                    />
+                </View>
+                <View style={styles.view1}>
+                    <Text style={styles.text1}>已选择的暗恋 ({likeCount})</Text>
+                    <List containerStyle={styles.list_container}>
+                        {
+                            like.map((l, i) => (
+                                <ListItem
+                                    leftIcon={{ name: "heart", type: "entypo", color: 'red' }}
+                                    key={i}
+                                    title={l.name}
+                                    hideChevron={true}
+                                    containerStyle={styles.ListItem_container}
+                                    titleStyle={{ fontSize: 15, }}
+                                    titleContainerStyle={{ paddingLeft: 10 }}
+                                />
+                            ))
+                        }
+                    </List>
+                    <View style={styles.view2}>
                         <Text style={{ paddingLeft: 10 }}>手机通讯录联系人</Text>
-                        <List
-                        containerStyle={{
-                                marginTop: 30,
-                                borderTopWidth: 0,
-                                borderBottomWidth: 1,
-                                borderBottomColor: '#cbd2d9'
-                            }}
-                        >
+                        <List containerStyle={styles.list_container}>
                             {
                                 dislike.map((l, i) => (
                                     <ListItem
@@ -149,29 +107,61 @@ class AnlianView extends Component {
                                         key={i}
                                         title={l.name}
                                         hideChevron={true}
-                                        containerStyle={{
-                                            borderTopWidth: 0,
-                                            borderBottomWidth: 0,
-                                            marginBottom: 20,
-                                            marginTop:0,
-                                            marginLeft:10,
-                                        }}
-                                        titleStyle={{
-                                            fontSize:15,
-                                        }}
-                                        titleContainerStyle={{
-                                            paddingLeft:10
-                                        }}
-                                        
+                                        containerStyle={styles.ListItem_container}
+                                        titleStyle={{ fontSize: 15, }}
+                                        titleContainerStyle={{ paddingLeft: 10 }}
+                                        onPress={()=>this.likeSomeone(l.id)}
                                     />
                                 ))
                             }
                         </List>
                     </View>
                 </View>
-
             </ScrollView>
         );
+    }
+}
+
+const styles = {
+    image: {
+        resizeMode: 'contain',
+        width: SCREEN_WIDTH,
+        height: 300,
+        borderWidth: 1
+    },
+
+    view1: {
+        flex: 1,
+        paddingTop: 20,
+        backgroundColor: 'white',
+        borderTopWidth: 1,
+        borderTopColor: '#cbd2d9'
+    },
+
+    view2: {
+        flex: 1,
+        paddingTop: 20,
+        backgroundColor: 'white'
+    },
+
+    text1: {
+        color: '#BB3D00',
+        paddingLeft: 10
+    },
+
+    list_container: {
+        marginTop: 30,
+        borderTopWidth: 0,
+        borderBottomWidth: 1,
+        borderBottomColor: '#cbd2d9'
+    },
+
+    ListItem_container: {
+        borderTopWidth: 0,
+        borderBottomWidth: 0,
+        marginBottom: 20,
+        marginTop: 0,
+        marginLeft: 10,
     }
 }
 

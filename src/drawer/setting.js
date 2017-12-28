@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { Text } from 'react-native';
 import { StackNavigator } from 'react-navigation';
 import { Icon } from 'react-native-elements';
-import Setting_home from '../views/setting_home.js'
-import { Info, Authority, Message, Data, Safe } from '../views/setting_details.js'
+import Setting_home from '../views/Setting_home.js'
+import { Info, Authority, Message, Data, Safe } from '../views/Setting_details.js'
 
 
 const settingView = ({ navigation }) => (

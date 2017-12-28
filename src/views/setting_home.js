@@ -92,12 +92,12 @@ class Setting_home extends Component {
         const range = this.state.range;
         const sexuality = this.state.sexuality;
         return (
-            <ScrollView style={{ backgroundColor: 'white' }}>
-                <View style={{ borderBottomWidth: 1, borderBottomColor: '#cbd2d9' }}>
-                    <View style={{ paddingTop: 10, paddingBottom: 10, paddingLeft: 15, }}>
-                        <Text style={{ color: '#BB3D00', fontSize: 15 }}>向我显示</Text>
+            <ScrollView style={styles.container}>
+                <View style={styles.view1}>
+                    <View style={styles.textView}>
+                        <Text style={styles.text}>向我显示</Text>
                     </View>
-                    <List containerStyle={{ marginTop: 20, borderTopWidth: 0, borderBottomWidth: 0, }} >
+                    <List containerStyle={styles.listContainer} >
                         <ListItem
                             title='范围'
                             titleStyle={{ fontSize: 15, }}
@@ -152,23 +152,18 @@ class Setting_home extends Component {
                         </ScrollView>
                     </List>
                 </View>
-                <View style={{ borderBottomWidth: 1, borderBottomColor: '#cbd2d9' }}>
-                    <View style={{ paddingTop: 10, paddingBottom: 10, paddingLeft: 15, }}>
-                        <Text style={{ color: '#BB3D00', fontSize: 15 }}>应用设置</Text>
+                <View style={styles.view1}>
+                    <View style={styles.textView}>
+                        <Text style={styles.text}>应用设置</Text>
                     </View>
-                    <List containerStyle={{ marginTop: 20, borderTopWidth: 0, borderBottomWidth: 0, }} >
+                    <List containerStyle={styles.listContainer} >
                         {list.map((l, i) => (
                             <ListItem
                                 key={i}
                                 title={l.title}
                                 subtitle={l.subtitle}
                                 leftIcon={l.icon}
-                                containerStyle={{
-                                    borderTopWidth: 0,
-                                    borderBottomWidth: 0,
-                                    marginLeft: 10,
-                                    height: 65
-                                }}
+                                containerStyle={styles.ListItemContainer}
                                 titleStyle={{ fontSize: 15, }}
                                 subtitleStyle={{ fontWeight: 'normal' }}
                                 onPress={() => navigation.navigate(l.detail)}
@@ -188,19 +183,9 @@ class Setting_home extends Component {
                                     type='material-community'
                                     containerStyle={{ paddingRight: 23 }} />
                             }
-                            containerStyle={{
-                                borderTopWidth: 0,
-                                borderBottomWidth: 0,
-                                marginLeft: 10,
-                                marginBottom: 35,
-                                height: 65
-                            }}
-                            titleStyle={{
-                                fontSize: 15,
-                            }}
-                            subtitleStyle={{
-                                fontWeight: 'normal'
-                            }}
+                            containerStyle={[styles.ListItemContainer,{marginBottom: 35}]}
+                            titleStyle={{fontSize: 15,}}
+                            subtitleStyle={{fontWeight: 'normal'}}
                         />
                         <Button
                             title='退出登录'
@@ -220,12 +205,12 @@ class Setting_home extends Component {
                         onRequestClose={() => this.setState({ visible: false })}
                     >
                         <TouchableOpacity style={{ flex: 1 }} onPress={() => this.setState({ visible: false })}>
-                            <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: 'rgba(0,0,0,0.5)' }}>
-                                <View style={{ height: 200, width: 300, backgroundColor: 'white' }}>
-                                    <View style={{ paddingLeft: 15, paddingTop: 15, paddingBottom: 20 }}>
-                                        <Text style={{ fontSize: 18, color: "black" }}>显示性别</Text>
+                            <View style={styles.modalContainer}>
+                                <View style={styles.modalView}>
+                                    <View style={styles.modalTextView}>
+                                        <Text style={styles.modalText}>显示性别</Text>
                                     </View>
-                                    <List containerStyle={{ marginTop: 0, borderTopWidth: 0, borderBottomWidth: 0, }}>
+                                    <List containerStyle={[styles.listContainer,{marginTop:0}]}>
                                         {list2.map((l, i) => (
                                             <ListItem
                                                 title={l.title}
@@ -254,4 +239,65 @@ class Setting_home extends Component {
     }
 
 }
+const styles = {
+    
+    container:{
+        backgroundColor: 'white'
+    },
+
+    view1:{
+        borderBottomWidth: 1, 
+        borderBottomColor: '#cbd2d9'
+    },
+
+    textView:{
+        paddingTop: 10, 
+        paddingBottom: 10, 
+        paddingLeft: 15,
+    },
+
+    text:{
+        color: '#BB3D00', 
+        fontSize: 15
+    },
+
+    listContainer:{
+        marginTop: 20, 
+        borderTopWidth: 0, 
+        borderBottomWidth: 0,
+    },
+
+    ListItemContainer:{
+        borderTopWidth: 0,
+        borderBottomWidth: 0,
+        marginLeft: 10,
+        height: 65
+    },
+
+    modalContainer:{
+        flex: 1, 
+        justifyContent: 'center', 
+        alignItems: 'center', 
+        backgroundColor: 'rgba(0,0,0,0.5)'
+    },
+
+    modalView:{
+        height: 200, 
+        width: 300, 
+        backgroundColor: 'white'
+    },
+
+    modalTextView:{
+        paddingLeft: 15, 
+        paddingTop: 15, 
+        paddingBottom: 20
+    },
+
+    modalText:{
+        fontSize: 18, 
+        color: "black"
+    }
+    
+}
+
 export default Setting_home;

@@ -48,41 +48,16 @@ class Guidance extends Component {
         return (
             <ScrollView>
                 <View style={{ flex: 1, }}>
-                    <Image
-                        source={require('../images/man.jpg')}
-                        style={{
-                            resizeMode: 'cover',
-                            width: SCREEN_WIDTH,
-                            height: 200,
-                            borderWidth: 1
-                        }}
-                    />
-                    <List
-                        containerStyle={{
-                            marginTop: 0,
-                            borderTopWidth: 0,
-                            borderBottomWidth: 0,
-                            backgroundColor: 'white'
-                        }}
-                    >
+                    <Image source={require('../images/man.jpg')} style={styles.image} />
+                    <List containerStyle={styles.list_container}>
                         {
                             Questions.map((l, i) => (
                                 <ListItem
                                     key={i}
                                     title={l.title}
-                                    containerStyle={{
-                                        borderTopWidth: 0,
-                                        borderBottomWidth: 0.2,
-                                        borderBottomColor: '#cbd2d9',
-                                        marginLeft: 10,
-                                        height: 75
-                                    }}
-                                    titleStyle={{
-                                        fontSize: 15,
-                                        fontWeight: '300'
-                                    }}
+                                    containerStyle={styles.item_container}
+                                    titleStyle={styles.title}
                                     onPress={() => navigation.navigate(l.answer)}
-
                                 />
                             ))
                         }
@@ -90,6 +65,37 @@ class Guidance extends Component {
                 </View>
             </ScrollView>
         )
+    }
+}
+
+const styles = {
+
+    item_container: {
+        borderTopWidth: 0,
+        borderBottomWidth: 0.2,
+        borderBottomColor: '#cbd2d9',
+        marginLeft: 10,
+        height: 75,
+        justifyContent: 'center', alignItems: 'center'
+    },
+
+    list_container: {
+        marginTop: 0,
+        borderTopWidth: 0,
+        borderBottomWidth: 0,
+        backgroundColor: 'white'
+    },
+
+    title: {
+        fontSize: 15,
+        fontWeight: '300',
+    },
+
+    image: {
+        resizeMode: 'cover',
+        width: SCREEN_WIDTH,
+        height: 200,
+        borderWidth: 1
     }
 }
 

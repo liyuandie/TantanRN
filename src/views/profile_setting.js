@@ -7,7 +7,7 @@ class Profile_setting extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            friends: [],
+            age:18,
         };
     }
     render() {

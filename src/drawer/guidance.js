@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Text } from 'react-native';
 import { StackNavigator } from 'react-navigation';
 import { Icon } from 'react-native-elements';
-import Guidance from '../views/guidance.js'
+import Guidance from '../views/Guidance.js'
 import { A1, A2, A3, A4, A5, A6, A7, A8 } from '../views/answers.js'
 
 const GuidanceView = ({ navigation }) => (

@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { Text } from 'react-native';
 import { StackNavigator } from 'react-navigation';
 import { Icon } from 'react-native-elements';
-import Profile from '../views/profile.js';
-import Profile_setting from '../views/profile_setting'
+import Profile from '../views/Profile.js';
+import Profile_setting from '../views/Profile_setting'
 
 
 const ProfileScreen = StackNavigator({

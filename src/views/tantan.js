@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, ScrollView, Image, StyleSheet } from 'react-native';
+import { View, ScrollView, Image, } from 'react-native';
 import { Text, Button, Icon, Card } from 'react-native-elements';
 import Swiper from 'react-native-swiper-animated';
 
@@ -56,33 +56,20 @@ class Tantan_view extends Component {
             >
                 {list.map((l, i) => (
                     <Card key={i}
-                        containerStyle={{ height: 420, borderRadius: 12 }}
+                        containerStyle={styles.cardContainer}
                         image={l.image}
                         imageStyle={{ height: 330 }} >
                         <View>
-                            <Text style={{ color: 'black', fontSize: 18, fontWeight: '400' }}>{l.name}</Text>
-                            <View style={{ paddingTop: 7, paddingBottom: 7, flexDirection: 'row', }}>
+                            <Text style={styles.name}>{l.name}</Text>
+                            <View style={styles.view1}>
                                 <View horizontal={true}
-                                    style={{
-                                        height: 15,
-                                        width: 32,
-                                        backgroundColor: 'pink',
-                                        borderRadius: 4,
-                                        flexDirection: 'row',
-                                    }}>
+                                    style={styles.view2}>
                                     <Icon name='gender-female' type='material-community' color='white' size={15} />
-                                    <Text style={{ color: 'white', fontSize: 12 }}>{l.age}</Text>
+                                    <Text style={styles.age}>{l.age}</Text>
                                 </View>
                                 <Text>  </Text>
-                                <View style={{
-                                    height: 15,
-                                    width: 32,
-                                    backgroundColor: 'green',
-                                    borderRadius: 4,
-                                    justifyContent: 'center',
-                                    alignItems: 'center'
-                                }}>
-                                    <Text style={{ color: 'white', fontSize: 10 }}>{l.constellation}</Text>
+                                <View style={styles.view3}>
+                                    <Text style={styles.constellation}>{l.constellation}</Text>
                                 </View>
                             </View>
                             <Text style={{ color: '#BEBEBE', fontSize: 11, }}>
@@ -96,6 +83,46 @@ class Tantan_view extends Component {
     }
 }
 
+
+const styles = {
+    cardContainer: {
+        height: 420,
+        borderRadius: 12
+    },
+    name: {
+        color: 'black',
+        fontSize: 18,
+        fontWeight: '400'
+    },
+    age: {
+        color: 'white',
+        fontSize: 12
+    },
+    constellation: {
+        color: 'white',
+        fontSize: 10
+    },
+    view1: {
+        paddingTop: 7,
+        paddingBottom: 7,
+        flexDirection: 'row',
+    },
+    view2: {
+        height: 15,
+        width: 32,
+        backgroundColor: 'pink',
+        borderRadius: 4,
+        flexDirection: 'row',
+    },
+    view3: {
+        height: 15,
+        width: 32,
+        backgroundColor: 'green',
+        borderRadius: 4,
+        justifyContent: 'center',
+        alignItems: 'center'
+    }
+}
 
 
 export default Tantan_view;

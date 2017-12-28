@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Text } from 'react-native';
 import { StackNavigator } from 'react-navigation';
 import { Icon } from 'react-native-elements';
-import AnlianView from '../views/anlian';
+import AnlianView from '../views/Anlian';
 
 const Anlian = ({ navigation }) => (
     <AnlianView navigation={navigation} />

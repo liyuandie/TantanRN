@@ -2,12 +2,12 @@ import React from 'react';
 import { View, Text, Platform, Dimensions, Image } from 'react-native';
 import { DrawerNavigator, DrawerItems, StackNavigator } from 'react-navigation';
 import { Button, Icon, Avatar } from 'react-native-elements';
-import TantanScreen from './src/drawer/tantan.js';
-import AnlianScreen from './src/drawer/anlian.js';
-import SettingScreen from './src/drawer/setting.js';
-import GuidanceScreen from './src/drawer/guidance.js';
-import ShareScreen from './src/drawer/share.js';
-import ProfileScreen from './src/drawer/profile.js';
+import TantanScreen from './src/drawer/Tantan.js';
+import AnlianScreen from './src/drawer/Anlian.js';
+import SettingScreen from './src/drawer/Setting.js';
+import GuidanceScreen from './src/drawer/Guidance.js';
+import ShareScreen from './src/drawer/Share.js';
+import ProfileScreen from './src/drawer/Profile.js';
 
 
 const SCREEN_WIDTH = Dimensions.get('window').width;
@@ -35,13 +35,13 @@ const ProfileDrawerItem = props => (
 
 
 const MainNavigator = DrawerNavigator({
-  头像: {
+  Profile: {
     screen: ProfileScreen,
     navigationOptions: {
       drawerLabel: ProfileDrawerItem,
     }
   },
-  探探: {
+  Tantan: {
     screen: TantanScreen,
     navigationOptions: {
       drawerLabel: '探探',
@@ -60,7 +60,7 @@ const MainNavigator = DrawerNavigator({
       />
     }
   },
-  匿名暗恋表白: {
+  Anlian: {
     screen: AnlianScreen,
     navigationOptions: {
       drawerLabel: '匿名暗恋表白',
@@ -81,7 +81,7 @@ const MainNavigator = DrawerNavigator({
       ),
     }
   },
-  设置: {
+  Setting: {
     screen: SettingScreen,
     navigationOptions: {
       drawerLabel: '设置',
@@ -102,7 +102,7 @@ const MainNavigator = DrawerNavigator({
       ),
     }
   },
-  新手引导: {
+  Guidence: {
     screen: GuidanceScreen,
     navigationOptions: {
       drawerLabel: '新手引导',
@@ -122,7 +122,7 @@ const MainNavigator = DrawerNavigator({
       />
     }
   },
-  推荐给好友: {
+  Share: {
     screen: ShareScreen,
     navigationOptions: {
       drawerLabel: '推荐给好友',
@@ -144,7 +144,7 @@ const MainNavigator = DrawerNavigator({
 },
   {
     drawerBackgroundColor: 'black',
-    initialRouteName: '头像',
+    initialRouteName: 'Setting',
     drawerWidth: SCREEN_WIDTH * 0.83,
     contentOptions: {
       activeTintColor: 'white',

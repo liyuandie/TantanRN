@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Icon } from 'react-native-elements';
 import { StackNavigator } from 'react-navigation';
-import shareView from '../views/share.js'
+import shareView from '../views/Share.js'
 
 const ShareScreen = StackNavigator({
     share: {
